@@ -1,0 +1,23 @@
+{
+  "name": "first_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "create": "sequelize db:create"
+  },
+  "keywords": [],
+  "author": "Luka Crnogorac",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "config": "^3.0.1",
+    "database": "0.0.2",
+    "express": "^4.16.4",
+    "mysql2": "^1.6.5",
+    "pg": "^7.8.2",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^5.1.0",
+    "sequelize-cli": "^5.4.0"
+  }
+}
