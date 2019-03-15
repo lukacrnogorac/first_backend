@@ -1,0 +1,19 @@
+{"database":
+    {
+    "database": "library",
+    "user": "",
+    "password": "",
+    "options":{
+        "host": "127.0.0.1",
+        "dialect": "mysql",
+        "timezone": "Europe/Zagreb",
+        "logging": true,
+        "pool":{
+            "max": 20,
+            "min": 0,
+            "idle":1000
+        }
+    }
+}
+
+}

@@ -10,6 +10,7 @@ let models = {};
 
 dbConfig.options.operatorsAliases = require('../config/sequlize-operator-aliases');
 
+//Connection
 const sequelize = new Sequelize(dbConfig.database, dbConfig.user, dbConfig.password, dbConfig.options);
 
 fs.readdirSync(__dirname).filter(function (file) {
