@@ -8,7 +8,7 @@ const dbConfig = config.get('database');
 
 let models = {};
 
-dbConfig.options.operatorsAliases = require('../config/sequlize-operator-aliases');
+//dbConfig.options.operatorsAliases = require('../config/sequlize-operator-aliases');
 
 //Connection
 const sequelize = new Sequelize(dbConfig.database, dbConfig.user, dbConfig.password, dbConfig.options);

@@ -26,6 +26,9 @@ module.exports = (sequelize, DataTypes) =>{
             },
         },
         {
+            timestamps: false
+        },
+        {
             engine: 'InnoDB',
             charset: 'utf8'
         }
