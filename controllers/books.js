@@ -2,7 +2,7 @@ const bookRepository = require('../repository/booksrepository');
 module.exports.getAllBooks = async(req,res) =>{
     try{
     let books = await bookRepository.repoGetBooks;
-    
+    if(books){
     books = books.map(book => {
         return{
             id: book.id,
@@ -12,6 +12,10 @@ module.exports.getAllBooks = async(req,res) =>{
             number_of_books: book.number_of_books
         };
     });
+}
+    else{
+        return;
+    }
 
     if(!books) throw new Error('No books..');
     res.status(200).json(books);
