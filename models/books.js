@@ -24,6 +24,14 @@ module.exports = (sequelize, DataTypes) =>{
                 type: DataTypes.INTEGER,
                 allowNull: false
             },
+            writer_id: {
+                type: DataTypes.INTEGER(11),
+                references: {
+                    model: 'writers',
+                    key: 'id'
+                }
+            }
+            
         },
         {
             timestamps: false

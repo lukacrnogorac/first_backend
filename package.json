@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./index.js",
-    "dev": "nodemon ./index.js",
+    "start": "node ./app.js",
+    "dev": "nodemon ./app.js",
     "create": "sequelize db:create",
     "migrate": "sequelize db:migrate",
-    "seed": "sequelize db:seed:all"
+    "seed": "sequelize db:seed:all --debug"
   },
   "keywords": [],
   "author": "Luka Crnogorac",
