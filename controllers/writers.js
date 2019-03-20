@@ -1,20 +1,19 @@
 const writerRepository = require('../repository/writerrepository');
-const books = require('../controllers/books');
 
 class WritersController{
-    async getWriterId(req,res,writerName){
+    async getWriterBooks(req,res,writerName){
         try{
-            let writer = await writerRepository.repoGetWriter(writerName);
-            if(writer){
-                books.getWriterBooks(req,res,writer.id);
+            let writer = await writerRepository.repoGetWriterBooks(writerName);
+            if(Object.keys(writer.books).length > 0){
+                res.status(200).json(writer.books);
             }
             else{
-                res.status(200).json({msg:"No writer"});
+                res.status(200).json({msg:"No books for writer"});
                 return;
             }
         }
         catch(err){
-            res.status(400).json({error: err.message});
+            res.status(400).json({error: "No wanted writer in database"});
         }
     }
 }

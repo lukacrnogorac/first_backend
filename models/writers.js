@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) =>{
-    return sequelize.define(
+    const writer = sequelize.define(
         'writers',{
             id: {
                 type: DataTypes.INTEGER(11),
@@ -28,4 +28,9 @@ module.exports = (sequelize, DataTypes) =>{
             charset: 'utf8'
         }
     );
+
+    writer.associate = function(models){
+        writer.hasMany(models.books,{as:'books',foreignKey:'writerId'});
+    }
+    return writer;
 };

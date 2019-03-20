@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) =>{
-    return sequelize.define(
+    const book = sequelize.define(
         'books',{
             id: {
                 type: DataTypes.INTEGER(11),
@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) =>{
                 type: DataTypes.INTEGER,
                 allowNull: false
             },
-            writer_id: {
+            writerId: {
                 type: DataTypes.INTEGER(11),
                 references: {
                     model: 'writers',
@@ -41,4 +41,6 @@ module.exports = (sequelize, DataTypes) =>{
             charset: 'utf8'
         }
     );
+
+    return book;
 };

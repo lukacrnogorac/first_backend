@@ -27,7 +27,7 @@ module.exports = {
                     type: Sequelize.INTEGER,
                     allowNull: false
                 },
-                writer_id:{
+                writerId:{
                     type: Sequelize.INTEGER(11)
                 }
             }
