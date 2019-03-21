@@ -1,10 +1,10 @@
-const bookRepository = require('../repository/booksrepository');
+const bookRepository = require('../repository/booksRepository');
 
 class BooksController{
         async getAllBooks(req,res){
             try{
             let books = await bookRepository.repoGetAllBooks();
-            if(Object.keys(books).length > 0){
+            if(books.length > 0){
                 res.status(200).json(books);
             }
             else{

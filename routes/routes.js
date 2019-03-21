@@ -3,9 +3,8 @@ const writers = require('../controllers/writers');
 const books = require('../controllers/books');
 
 router.get('/books',(req,res) =>{
-    if(Object.keys(req.query).length !== 0){
-        let stringQuery = JSON.parse(JSON.stringify(req.query));
-        writers.getWriterBooks(req,res,stringQuery["writer"]);
+    if(req.query.writer){
+        writers.getWriterBooks(req,res,req.query.writer);
     }
     else{
         books.getAllBooks(req,res);  

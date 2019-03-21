@@ -4,7 +4,7 @@ class WritersController{
     async getWriterBooks(req,res,writerName){
         try{
             let writer = await writerRepository.repoGetWriterBooks(writerName);
-            if(Object.keys(writer.books).length > 0){
+            if(writer.books.length > 0){
                 res.status(200).json(writer.books);
             }
             else{
