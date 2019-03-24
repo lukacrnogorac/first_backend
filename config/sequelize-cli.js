@@ -1,5 +1,4 @@
 const dbConfig = require('config').get('database');
-console.log(dbConfig.options);
 
 module.exports = {
     database: dbConfig.database,

@@ -8,7 +8,8 @@
     "dev": "nodemon ./app.js",
     "create": "sequelize db:create",
     "migrate": "sequelize db:migrate",
-    "seed": "sequelize db:seed:all --debug"
+    "seed": "sequelize db:seed:all --debug",
+    "test": "mocha"
   },
   "keywords": [],
   "author": "Luka Crnogorac",
@@ -19,9 +20,16 @@
     "database": "0.0.2",
     "express": "^4.16.4",
     "mysql2": "^1.6.5",
+    "nodemon": "^1.18.10",
     "pg": "^7.8.2",
     "pg-hstore": "^2.3.2",
+    "request": "^2.88.0",
     "sequelize": "^5.1.0",
     "sequelize-cli": "^5.4.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2",
+    "supertest": "^4.0.2"
   }
 }
