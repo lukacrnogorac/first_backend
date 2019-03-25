@@ -5,15 +5,13 @@ const authentication = require('../controllers/authentication');
 
 router.get('/books',(req,res) =>{
     if(req.query.writer){
-        writers.getWriterBooks(req,res,req.query.writer);
+        writers.getWriterBooks(req,res);
     }
     else{
         books.getAllBooks(req,res);  
     }
 });
 
-router.post('/login', (req,res) =>{
-    authentication.login(req,res);
-});
+router.post('/login', authentication.login);
 
 module.exports = router;

@@ -5,15 +5,13 @@ class BooksController{
             try{
             let books = await bookRepository.repoGetAllBooks();
             if(books.length > 0){
-                res.status(200).json(books);
+                return res.status(200).json(books);
             }
-            else{
-                return;
-            }
+                return res.status(200).json({message:'No books'});;
             
         }
             catch(err){
-                res.status(400).json({error: err.message});
+                return res.status(400).json({error: err.message});
             }
         };
 
