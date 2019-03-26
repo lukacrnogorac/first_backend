@@ -1,0 +1,109 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Swagger First backend"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000"
+    }
+  ],
+  "paths": {
+    "/books": {
+      "get": {
+        "summary": "Return list of all books",
+        "operationId": "listOfBooks",
+        "tags": [
+          "books"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "writer",
+            "schema": {
+              "type": "string",
+              "description": "Books of wanted writer if he is in database"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of all books",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Books"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Books": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "title": {
+            "type": "string",
+            "example": "My first book"
+          },
+          "number_of_pages": {
+            "type": "integer",
+            "format": "int64",
+            "example": 120
+          },
+          "year_of_publish": {
+            "type": "integer",
+            "format": "int64",
+            "example": 2012
+          },
+          "number_of_books": {
+            "type": "integer",
+            "format": "int64",
+            "example": 2
+          },
+          "writerId": {
+            "type": "integer",
+            "format": "int64",
+            "example": 2
+          }
+        }
+      },
+      "Error": {
+        "required": [
+          "code",
+          "message"
+        ],
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int64",
+            "example": 500
+          },
+          "message": {
+            "type": "string",
+            "example": "Unexpected error"
+          }
+        }
+      }
+    }
+  }
+}
