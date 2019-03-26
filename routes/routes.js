@@ -13,5 +13,6 @@ router.get('/books',(req,res) =>{
 });
 
 router.post('/login', authentication.login);
+router.post('/registration', authentication.registration);
 
 module.exports = router;

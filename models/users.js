@@ -1,3 +1,7 @@
+'use strict';
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 module.exports = (sequelize, DataTypes) =>{
     const user = sequelize.define(
         'users',{
@@ -35,8 +39,12 @@ module.exports = (sequelize, DataTypes) =>{
         {
             engine: 'InnoDB',
             charset: 'utf8'
-        }
+        }, 
     );
+
+    user.addHook('beforeCreate',u => {
+            u.password = bcrypt.hashSync(u.password,saltRounds);
+    });
 
     return user;
 };

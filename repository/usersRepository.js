@@ -8,6 +8,16 @@ class UsersRepository{
             }
         });
     }
+
+    repoAddUser(requestData){
+        models.users.create({
+                firstName: requestData.firstName,
+                lastName: requestData.lastName,
+                username: requestData.username,
+                password: requestData.password,
+                email: requestData.email      
+        });
+    };
 }
 
 module.exports = new UsersRepository();
