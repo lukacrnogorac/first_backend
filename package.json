@@ -30,6 +30,7 @@
   "devDependencies": {
     "bcrypt": "^3.0.5",
     "chai": "^4.2.0",
+    "jsonwebtoken": "^8.5.1",
     "mocha": "^6.0.2",
     "supertest": "^4.0.2"
   },
