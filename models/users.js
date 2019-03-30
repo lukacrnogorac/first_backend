@@ -42,8 +42,8 @@ module.exports = (sequelize, DataTypes) =>{
         }, 
     );
 
-    user.addHook('beforeCreate',u => {
-            u.password = bcrypt.hashSync(u.password,saltRounds);
+    user.addHook('beforeCreate',async(u) =>{
+            u.password = await bcrypt.hash(u.password,saltRounds);
     });
 
     return user;

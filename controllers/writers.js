@@ -1,4 +1,5 @@
 const writerRepository = require('../repository/writerrepository');
+const helper = require('../helpers/tokenHelper.js');
 
 class WritersController{
     async getWriterBooks(req,res){
@@ -7,9 +8,8 @@ class WritersController{
             if(writer.books.length) return res.status(200).json(writer.books);
             
             return res.status(404).json({msg:"No books for writer"});
-        }
-        catch(err){
-            return res.status(400).json({error: "No wanted writer in database"});
+        } catch(err){
+            return res.status(400).json({error:err.message});
         }
     }
 }

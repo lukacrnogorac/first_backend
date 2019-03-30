@@ -28,7 +28,11 @@ module.exports = {
                     allowNull: false
                 },
                 writerId:{
-                    type: Sequelize.INTEGER(11)
+                    type: Sequelize.INTEGER(11),
+                    references:{
+                        model:'writers',
+                        key: 'id'
+                      }
                 }
             }
         )

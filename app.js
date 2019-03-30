@@ -1,11 +1,14 @@
 const express = require('express');
 const app = express();
 const router = require('./routes/routes.js');
+const bodyParser = require('body-parser');
 
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.use((request, response, next) => {
     response.header("Access-Control-Allow-Origin", "*");
