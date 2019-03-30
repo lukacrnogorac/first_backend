@@ -8,12 +8,8 @@ const swaggerDocument = require('../docs/swagger.json');
 //const asyncMiddleware = require('../utils/asyncMiddleware.js');
 
 router.get('/books',(req,res) =>{
-    if(helper.decodeToken(req,res)){
     if(req.query.writer) return writers.getWriterBooks(req,res);
-
     return books.getAllBooks(req,res);  
-    } 
-    // return res.status(401).json({message:'Unauthorized'});
 });
 
 router.post('/login', authentication.login);

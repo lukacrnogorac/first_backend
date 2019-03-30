@@ -5,22 +5,18 @@ const options = {expiresIn: '1h',algorithm: 'HS384'};
 
 class TokenHelper{
     decodeToken(req,res){
+        let responseObject = {bool: false,status:"Unauthorized, token required"};
         req.decodedToken = null;
         try{
             const authorization = req.headers.authorization;
             if(authorization){ 
-                const token = authorization.split(' ')[1];
-                req.decodedToken = jwt.verify(token,secret);
-                return true;
+                req.decodedToken = jwt.verify(authorization,secret,options);
+                return responseObject = {bool: true,status:"valid"};
         }
-        res.status(401).json({message:'Unauthorized'});
-        return false;
+        return responseObject;
     } catch(err){
-        res.status(401).json({message: err.message});
-        return false;
+        return responseObject = {bool: false,status:err.message};
     }
-        
-
 }
 }
 
