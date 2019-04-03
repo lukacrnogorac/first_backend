@@ -3,9 +3,8 @@ const helper = require('../helpers/tokenHelper.js');
 
 class WritersController{
     async getWriterBooks(req,res){
-        const resObject = helper.decodeToken(req,res);
-        if(resObject.bool){
             try{
+                if(req.decodedToken === null) return res.status(401).json({error: 'Token missing or you need to login'});
                 let writer = await writerRepository.repoGetWriterBooks(req.query.writer);
                 if(writer.books.length) return res.status(200).json(writer.books);
                 
@@ -13,8 +12,6 @@ class WritersController{
             } catch(err){
                 return res.status(400).json({error:err.message});
             }
-        }
-        return res.status(401).json({error:resObject.status});
     }
 }
 

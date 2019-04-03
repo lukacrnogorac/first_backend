@@ -8,7 +8,13 @@ class UsersRepository{
             }
         });
     }
-
+    repoGetEmail(requestData){
+        return models.users.findOne({
+            where: {
+                email: requestData.email
+            }
+        });
+    }
     repoAddUser(requestData){
         models.users.create({
                 firstName: requestData.firstName,
