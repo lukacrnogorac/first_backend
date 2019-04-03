@@ -8,6 +8,7 @@ class UsersRepository{
             }
         });
     }
+    
     repoGetEmail(requestData){
         return models.users.findOne({
             where: {

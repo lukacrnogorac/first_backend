@@ -17,6 +17,4 @@ router.get('/books',(req,res) =>{
     return books.getAllBooks(req,res);  
 });
 
-
-
 module.exports = router;

@@ -29,7 +29,6 @@ module.exports = {
             }
         );
     },
-    
     down: function(queryInterface,Sequelize){
         return queryInterface.dropTable('Error_log');
     }

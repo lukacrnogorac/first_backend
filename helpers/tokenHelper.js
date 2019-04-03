@@ -11,7 +11,6 @@ module.exports = function decodeToken(req,res,next){
                 req.decodedToken = jwt.verify(authorization,secret,options);
         }
         next();
-       // return res.status(401).json({message:'Missing token'});
     } catch(err){
         next(err);
     }

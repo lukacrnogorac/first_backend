@@ -32,6 +32,7 @@ class AuthenticationController{
 
             const isNotValidUsername = await usersRepository.repoGetUser(req.body);
             if(isNotValidUsername) return res.status('409').json({message:'A user with the same username already exists'});
+            
             const isNotValidEmail = await usersRepository.repoGetEmail(req.body);
             if(isNotValidEmail) return res.status('409').json({message:'A user with the same email already exists'});
             

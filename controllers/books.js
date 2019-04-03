@@ -1,5 +1,4 @@
 const bookRepository = require('../repository/booksRepository');
-const usersRepository = require('../repository/usersRepository.js');
 
 class BooksController{
         async getAllBooks(req,res){

@@ -9,7 +9,6 @@ class ErrorLogRepository{
             error_message: errorObject.message
         });
     };
-
     getAllErrors(){
         models.error_log.findAll();
     };

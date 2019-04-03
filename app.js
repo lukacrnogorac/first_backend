@@ -32,7 +32,7 @@ function errorHandler(err, req, res, next){
     };
 
     if(err.name) errorObject.status = statusHelper(err.message);
-    //databaseLogger.writeInDb(errorObject);
+    databaseLogger.writeInDb(errorObject);
     res.status(errorObject.status).json({error: errorObject.message});
 };
 
