@@ -16,5 +16,7 @@ router.get('/books',(req,res) =>{
     if(req.query.writer) return writers.getWriterBooks(req,res);
     return books.getAllBooks(req,res);  
 });
+router.get('/writers', writers.getWriters);
+router.post('/books/delete', books.deleteBooks);
 
 module.exports = router;

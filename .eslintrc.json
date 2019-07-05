@@ -1,17 +1,23 @@
 {
     "env": {
-        "browser": true,
+        "node": true,
         "es6": true
     },
     "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
+        "logger": true
     },
     "parserOptions": {
         "ecmaVersion": 2018,
         "sourceType": "module"
     },
     "rules": {
-        "no-console": 1
-    }
+        "no-console": 1,
+        "semi": [1, "always"]
+    },
+
+    "extends": [
+        "eslint:recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings"
+      ]
 }

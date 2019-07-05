@@ -14,6 +14,9 @@ class WriterRepository{
                 ]
             }
         );
+    }
+    repoGetWriters(){
+        return models.writers.findAll();
     }   
 }
 

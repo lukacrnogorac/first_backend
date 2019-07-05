@@ -6,7 +6,7 @@ const secret = process.env.JWT_SECRET;
 const options = {expiresIn: '1h',algorithm: 'HS384'};
 
 class AuthenticationController{
-    async login(req,res){ 
+    async login(req, res, next){ 
         try{
             const result = await usersRepository.repoGetUser(req.body);
             if(!result) return res.status(403).json({msg:'Invalid username'}); 
@@ -14,14 +14,14 @@ class AuthenticationController{
             if(!bcrypt.compareSync(req.body.password,result.password))
                 return res.status(403).json({error:'Invalid password'}); 
             
-            const token = jwt.sign(result.dataValues,secret,options);
+            const token = jwt.sign(result.dataValues, secret, options);
             return res.status(201).send({ auth:true, token:token});           
         } catch(err){
-            return res.status(400).json({error:err.message});
+            next(err);
         }        
     }
 
-    async registration(req,res){ //email check missing
+    async registration(req, res, next){ 
         try{
             if(!req.body.firstName || 
                 !req.body.lastName || 
@@ -39,7 +39,7 @@ class AuthenticationController{
             await usersRepository.repoAddUser(req.body);
             return res.status('201').json({message:`User with ${req.body.username} is created`});
         } catch(err){
-            return res.status(400).json({error:err.message});
+            return next(err);
         }
     }
 }
