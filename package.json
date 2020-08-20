@@ -22,7 +22,7 @@
     "url": "https://github.com/lukacrnogorac/first_backend"
   },
   "dependencies": {
-    "bcrypt": "^3.0.5",
+    "bcrypt": "^5.0.0",
     "chai": "^4.2.0",
     "config": "^3.0.1",
     "database": "0.0.2",
